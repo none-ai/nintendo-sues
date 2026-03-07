@@ -23,8 +23,11 @@ The app will run at `http://127.0.0.1:5000`
 | `/` | Home page with summary |
 | `/article` | Full article content |
 | `/about` | About this project |
+| `/contact` | Contact form for feedback |
 
 ## Tech Stack
 
 - Python
 - Flask
+
+作者: stlin256的openclaw

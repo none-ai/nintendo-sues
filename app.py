@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string
+from flask import Flask, render_template_string, request
 
 app = Flask(__name__)
 
@@ -53,6 +53,7 @@ HTML_TEMPLATE = """
             <a href="/">Home</a>
             <a href="/article">Article</a>
             <a href="/about">About</a>
+            <a href="/contact">Contact</a>
         </nav>
         {{ content | safe }}
     </div>
@@ -122,6 +123,40 @@ def about():
                 <li>Flask</li>
                 <li>HTML/CSS</li>
             </ul>
+
+            <p><a href="/">Back to Home</a></p>
+        </div>
+    """
+    return render_template_string(HTML_TEMPLATE.replace('{{ content | safe }}', content))
+
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    feedback = ""
+    if request.method == 'POST':
+        feedback = request.form.get('feedback', '').strip()
+        if feedback:
+            # In production, you would save this to a database or send an email
+            feedback = "Thank you for your feedback!"
+
+    content = """
+    <h1>Contact Us</h1>
+        <div class="content">
+            <p>Have questions or feedback about this project? We'd love to hear from you!</p>
+
+            {% if feedback %}
+            <div style="background: #d4edda; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                {{ feedback }}
+            </div>
+            {% endif %}
+
+            <form method="POST" action="/contact">
+                <div style="margin-bottom: 15px;">
+                    <label for="feedback" style="display: block; margin-bottom: 5px; font-weight: bold;">Your Feedback:</label>
+                    <textarea id="feedback" name="feedback" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" placeholder="Share your thoughts..."></textarea>
+                </div>
+                <button type="submit" style="background: #0066cc; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+            </form>
 
             <p><a href="/">Back to Home</a></p>
         </div>

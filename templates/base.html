@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Nintendo Sues US Government{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% if dark_mode %}
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #e0e0e0;
+            --meta-color: #aaa;
+            --link-color: #64b5f6;
+            --border-color: #444;
+        }
+    </style>
+    {% endif %}
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/article">Article</a>
+                    <a href="/timeline">Timeline</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                </div>
+                <button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    {% if dark_mode %}☀️{% else %}🌙{% endif %}
+                </button>
+            </nav>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+            <p>&copy; 2026 Nintendo Tariff Lawsuit Coverage. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        document.getElementById('dark-mode-toggle')?.addEventListener('click', function() {
+            fetch('/toggle-dark-mode', { method: 'POST' })
+                .then(() => window.location.reload());
+        });
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

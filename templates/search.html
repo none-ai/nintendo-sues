@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results - Nintendo Tariff Lawsuit{% endblock %}
+
+{% block content %}
+<h1>Search Results</h1>
+<p class="meta">Query: "{{ query }}"</p>
+
+<div class="content">
+    <div class="search-container">
+        <form action="/search" method="GET">
+            <input type="text" name="q" class="search-input" value="{{ query }}" placeholder="Search...">
+            <button type="submit" class="btn" style="margin-top: 10px;">Search</button>
+        </form>
+    </div>
+
+    {% if results %}
+        <h2>Found {{ results|length }} result(s)</h2>
+        <div class="card-grid">
+            {% for result in results %}
+            <div class="card">
+                <h3><a href="{{ result.url }}">{{ result.title }}</a></h3>
+                <p>{{ result.snippet }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No results found for your query. Try different keywords.</p>
+    {% endif %}
+</div>
+{% endblock %}

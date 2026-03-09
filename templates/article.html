@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Full Article - Nintendo Sues for Tariff Refund{% endblock %}
+
+{% block content %}
+<h1>Full Article: Nintendo Sues for Tariff Refund</h1>
+<p class="meta">Published: March 2026 | Category: Legal News</p>
+
+<div class="content">
+    <h2>Background</h2>
+    <p>Nintendo has taken legal action against the US government, challenging tariffs that the company claims were incorrectly applied to its products. The lawsuit seeks a refund of millions of dollars in tariffs paid over the past years.</p>
+
+    <p>The Japanese video game giant argues that the US Customs and Border Protection agency misclassified certain products, leading to inflated tariff rates. Nintendo contends that these products should have been taxed at lower rates under existing trade agreements.</p>
+
+    <h2>Key Points</h2>
+    <ul>
+        <li><strong>Tariff Amount:</strong> Nintendo seeks refunds potentially exceeding $100 million</li>
+        <li><strong>Time Period:</strong> The lawsuit covers tariffs paid since 2019</li>
+        <li><strong>Products Affected:</strong> Nintendo Switch consoles, accessories, and components</li>
+        <li><strong>Legal Basis:</strong> Misclassification under the Harmonized Tariff Schedule</li>
+    </ul>
+
+    <h2>Industry Impact</h2>
+    <p>Other major electronics companies are closely watching this case, as similar tariff disputes could affect their operations. The lawsuit highlights ongoing tensions between trade policy and the technology sector.</p>
+
+    <p>Industry analysts suggest that a favorable ruling for Nintendo could open the door for other companies to challenge similar tariff classifications, potentially reshaping how electronics are taxed upon import to the United States.</p>
+
+    <h2>What's Next</h2>
+    <p>The case is expected to proceed through the Court of International Trade in the coming months. Legal experts predict a lengthy courtroom battle that could extend well into 2027.</p>
+</div>
+
+<div class="comments-section">
+    <h3>Discussion</h3>
+    <div class="comment-form">
+        <form method="POST" action="/article/comment">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn">Post Comment</button>
+        </form>
+    </div>
+    {% if comments %}
+    {% for comment in comments %}
+    <div class="comment">
+        <div class="comment-author">{{ comment.name }}</div>
+        <div class="comment-date">{{ comment.date }}</div>
+        <p>{{ comment.text }}</p>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

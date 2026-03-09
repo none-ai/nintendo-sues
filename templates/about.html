@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}About - Nintendo Tariff Lawsuit{% endblock %}
+
+{% block content %}
+<h1>About This Project</h1>
+<p class="meta">Project Information</p>
+
+<div class="content">
+    <p>This is a Flask web application providing comprehensive coverage of Nintendo's lawsuit against the US government regarding tariff classifications on video game consoles and accessories.</p>
+
+    <h2>Features</h2>
+    <ul>
+        <li><strong>Home Page:</strong> Overview of the lawsuit and key developments</li>
+        <li><strong>Full Article:</strong> In-depth coverage with background and analysis</li>
+        <li><strong>Timeline:</strong> Chronological events of the legal battle</li>
+        <li><strong>Discussion:</strong> Comment section for reader engagement</li>
+        <li><strong>Contact:</strong> Feedback form for user input</li>
+        <li><strong>Dark Mode:</strong> Toggle between light and dark themes</li>
+    </ul>
+
+    <h2>Tech Stack</h2>
+    <ul>
+        <li>Python</li>
+        <li>Flask</li>
+        <li>HTML5 / CSS3</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <h2>Project Structure</h2>
+    <pre><code>├── app.py              # Main Flask application
+├── requirements.txt    # Python dependencies
+├── templates/          # HTML templates
+│   ├── base.html      # Base template
+│   ├── index.html     # Home page
+│   ├── article.html   # Article page
+│   ├── timeline.html  # Timeline page
+│   ├── about.html     # About page
+│   └── contact.html   # Contact page
+└── static/
+    └── css/
+        └── style.css  # Styling
+</code></pre>
+</div>
+{% endblock %}

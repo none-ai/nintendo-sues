@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error {{ error_code }} - Nintendo Tariff Lawsuit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .error-code {
+            font-size: 6em;
+            font-weight: bold;
+            color: #e53935;
+            margin: 0;
+        }
+        .error-message {
+            font-size: 1.5em;
+            color: #666;
+            margin: 20px 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #1976d2;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/article">Article</a>
+                    <a href="/timeline">Timeline</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="error-container">
+                <h1 class="error-code">{{ error_code }}</h1>
+                <p class="error-message">{{ error_message }}</p>
+                <a href="/" class="back-link">Back to Home</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
